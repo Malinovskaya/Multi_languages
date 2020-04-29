@@ -8,18 +8,18 @@ def pytest_addoption(parser):
 
 @pytest.fixture
 def browser(request):
-    browser_name = request.config.getoption("language")
+    language_name = request.config.getoption("language")
     browser = None
     options = Options()
-    if browser_name == "en":
+    if language_name == "en":
         print("\nstart chrome browser for test..")
         options.add_experimental_option('prefs', {'intl.accept_languages': "en"})
         browser = webdriver.Chrome(options=options)
-    elif browser_name == "es":
+    elif language_name == "es":
         print("\nstart chrome browser for test..")
         options.add_experimental_option('prefs', {'intl.accept_languages': "es"})
         browser = webdriver.Chrome(options=options)
-    elif browser_name == "fr":
+    elif language_name == "fr":
         print("\nstart chrome browser for test..")
         options.add_experimental_option('prefs', {'intl.accept_languages': "fr"})
         browser = webdriver.Chrome(options=options)
